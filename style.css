@@ -1,12 +1,21 @@
+html{
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
 body{
 	display: flex;
 	align-content: center;
+	align-items: center;
 	justify-content: center;
 	height: 100%;
 	width: 100%;
 	padding: 0;
 	margin: 0;
 	margin-top: 30px;
+	background: black;
+	font-family: 'Courier New', Courier, monospace;
 }
 
 #container{
@@ -17,8 +26,6 @@ body{
 	align-items: center;
 	width: 500px;
 	height: 500px;
-	border: 1px solid black;
-	background-color: #41637d;
 }
 #form-container{
 	display: flex;
@@ -31,22 +38,13 @@ body{
 	left: 0;
 }
 #msg-form{
-	width: 100%;
+	width: 423px;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-content: center;
 	padding: 0;
 	margin: 0;
-}
-#message{
-	flex-basis: 80%;
-	padding-left: 10px;
-}
-#submit{
-	flex-basis: 15%;
-	background-color: #000;
-	color: white;
 }
 
 #message, #submit{
@@ -59,10 +57,20 @@ body{
 	display: block;
 }
 
+#message{
+	flex-basis: 80%;
+	padding-left: 20px;
+}
+#submit{
+	flex-basis: 15%;
+	background-color: #000;
+	color: white;
+	cursor: pointer;
+}
+
 #chatbox{
-	height: 380px;
-	width: 400px;
-	margin-bottom: 10%;
+	height: 470px;
+	width: 422px;
 	background-color: #214c6e;
 	overflow: hidden;
 	overflow-y: auto;
