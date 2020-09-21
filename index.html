@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SocketIO chatbox</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+	<div id="container">
+		<div id="chatbox">
+			<ul id="message-list">
+			</ul>
+			<div id="form-container">
+				<form id="msg-form" action="">
+					<input type="text" id="message"> 
+					<input type="submit" id="submit" value="»">
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+	$(function () {
+		var socket = io();
+		$('#msg-form').submit(function(e) {
+			e.preventDefault(); // prevents page reloading
+			if($('#message').val() != '') socket.emit('chat message', $('#message').val());
+			$('#message').val('');
+			return false;
+		});
+		socket.on('chat message', function(msg){
+		$('#message-list').append($('<li>').text(msg));
+		});
+	});
+	</script>
+</body>
+</html>
