@@ -18,6 +18,10 @@ body{
 	font-family: 'Courier New', Courier, monospace;
 }
 
+li{
+	word-wrap: break-word;
+}
+
 #container{
 	position: relative;
 	display: flex;
@@ -79,3 +83,12 @@ body{
 #message-list { list-style-type: none; margin: 0; padding: 0; color: white}
 #message-list li { padding: 5px 10px; }
 #message-list li:nth-child(odd) { background: #2e2e2e; }
+
+
+#chatbox::-webkit-scrollbar {
+	display: none;
+}
+#chatbox {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
