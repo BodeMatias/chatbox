@@ -8,14 +8,22 @@ app.get('/', (req, res) => {
 });
 app.use(express.static("."));
 
+var user = 1;
+
 io.on('connection', (socket) => {
 	console.log('a user connected');
-	socket.on('disconnect', () => {
-	  console.log('user disconnected');
-	});
+	
+	io.emit('user', user)
+	user++;
+
 	socket.on('chat message', (msg) => {
-		io.emit('chat message', msg);
+		console.log(msg)
+		io.emit('chat message', {message: msg.message, user: msg.user});
 	});
+
+	socket.on('disconnect', () => {
+		console.log('user disconnected');
+	  });
 });
 
 http.listen(3000, () => {
